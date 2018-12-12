@@ -1,5 +1,13 @@
-<%= simple_form_for post do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
-  <%= f.button :submit %>
-<%end%>
+<div class="row">
+  <div class="col-sm-8 offset-sm-2">
+    <%= simple_form_for post do |f| %>
+      <%= f.error_notification %>
+
+      <%= f.input :title %>
+
+      <%= f.input :content %>
+
+      <%= f.button :submit ,class: "btn-outline-primary"%>
+    <% end %>
+  </div>
+</div>

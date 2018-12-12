@@ -10,6 +10,14 @@
   </head>
 
   <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <%=link_to "Tag It", root_path, class:'navbar-brand' %>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%=link_to 'new post', new_post_path, class:'nav-link'%>
+      </li>
+    </ul>
+  </nav>
     <%= yield %>
   </body>
 </html>

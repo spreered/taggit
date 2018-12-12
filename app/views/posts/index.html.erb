@@ -1,7 +1,37 @@
-<h1>Index</h1>
-<ul>
-  <% @posts.each do  |post|%>
-  <li><%=link_to post.title, post_path(post) %> | <%=link_to  "edit", edit_post_path(post) %> | <%= link_to  "delete", post_path(post), method: :delete %></li>
-  <%end%>
-</ul>
-<%= link_to  "new post", new_post_path %>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>tag</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @posts.each do |post| %>
+          <tr>
+            <td><%=link_to post.title, post_path(post) %></td>
+            <td></td>
+            <td>
+              <%= link_to edit_post_path(post), class: 'btn btn-link btn-sm btn-edit' do %>
+                <%= fa_icon "edit" %>
+              <%end%>
+              <%=link_to post_path(post),data: {:confirm => 'Are you sure?'}, method: :delete, class:"btn btn-link btn-sm btn-delete" do %>
+                <%= fa_icon "times" %>
+              <%end%>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+
+    </div>
+  </div>
+
+</div>
+
+
+

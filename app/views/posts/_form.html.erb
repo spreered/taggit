@@ -7,9 +7,19 @@
 
       <%= f.input :content %>
 
-      <%= f.input :tag_list %>
+      <%= f.input :tag_items, as: :select, collection: Tag.order(:name), label_method: :name,value_method: :name, input_html: {multiple: true} %>
 
       <%= f.button :submit ,class: "btn-outline-primary"%>
     <% end %>
   </div>
 </div>
+
+<script>
+  $(document).on('turbolinks:load', function () {
+
+    $("#post_tag_items").select2({
+      tags: true,
+      tokenSeparators: [',', ' ']
+    })
+  });
+</script>
